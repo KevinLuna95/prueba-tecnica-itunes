@@ -2,9 +2,8 @@
 
 const newestgalantisSongs = async() =>{
     try{
-    const response = await fetch("https://itunes.apple.com/search?term=galantis&media=music");        
-    const result = await response.json();
-    let release_date = result.results.releaseDate;
+        const response = await fetch("https://itunes.apple.com/search?term=galantis&media=music&limit=50");        
+        const result = await response.json();
     let dataObject = result.results;
         dataObject.sort( (a,b) =>{
             if(a.releaseDate == b.releaseDate){
@@ -17,7 +16,6 @@ const newestgalantisSongs = async() =>{
         });
         document.write("<b>Las últimas 10 canciones de Galantis:<br></b>");
     for (let i = 0; i < 10; i++) {
-        release_date = (dataObject[i].releaseDate);
         document.write(dataObject[i].trackName); document.write("<br>");
     }
     } catch (e){
@@ -31,7 +29,6 @@ const newestGagaSongs = async() =>{
     try{
     const response = await fetch("https://itunes.apple.com/search?term=lady+gaga&media=music");        
     const result = await response.json();
-    let release_date = result.results.releaseDate;
     let dataObject = result.results;
         dataObject.sort( (a,b) =>{
             if(a.releaseDate == b.releaseDate){
@@ -45,7 +42,6 @@ const newestGagaSongs = async() =>{
         document.write("<br>");
         document.write("<b>Las últimas 10 canciones de Lady Gaga:<br></b>");
     for (let i = 0; i < 10; i++) {
-        release_date = (dataObject[i].releaseDate);
         document.write(dataObject[i].trackName); document.write("<br>");
     }
     } catch (e){
