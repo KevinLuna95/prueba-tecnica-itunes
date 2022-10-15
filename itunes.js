@@ -17,22 +17,26 @@ const newestSongs = async() =>{
             }
             return -1;
         });
-        document.write("<br><br>")
-        document.write(`<b>Las últimas 10 canciones de ${artist.charAt(0).toUpperCase() + artist.slice(1)}:<br></b>`);
+        const fragment = document.createDocumentFragment();
+        const h2 = document.createElement("h2");
+        h2.textContent = `Las últimas 10 canciones de ${artist.charAt(0).toUpperCase() + artist.slice(1)}:`;
+        fragment.appendChild(h2);
         for (let i = 0; i < 10; i++) {
-            document.write(dataObject[i].trackName); document.write("<br>");
+            const li = document.createElement("li");
+            li.textContent = `${dataObject[i].trackName}`;
+            fragment.appendChild(li);
         }
+        document.body.appendChild(fragment);
     } catch (e){
         console.log(e);
         console.log("API call error - newestSongs");
     }
 }
+
 const newestgalantisSongs = () =>{
         artistwait = "galantis";
         newestSongs();
         }
-
-
 newestgalantisSongs();
 
 const newestGagaSongs = () =>{
@@ -41,18 +45,22 @@ const newestGagaSongs = () =>{
 }
 newestGagaSongs();
 
-
 const searchingPeace = async() =>{
     try{
         const response = await fetch("https://itunes.apple.com/search?term=peace&limit=30");  
         //La API retornaba 200 resultados. he puesto límite a lo solicitado, 30.      
         const result = await response.json();
         let dataObject = result.results;
-        document.write("<br>");
-        document.write("<b>30 results de la búsqueda peace:<br></b>");
+        const fragment = document.createDocumentFragment();
+        const h2 = document.createElement("h2");
+        h2.textContent = `30 resultadoss de la búsqueda Peace:`;
+        fragment.appendChild(h2);
         for (let i = 0; i < dataObject.length; i++) {
-            document.write(`La consulta ${[i+1]} es del artista <b>${dataObject[i].artistName}</b> y corresponde a un <b>${dataObject[i].wrapperType}</b>`); document.write("<br>");
+            const li = document.createElement("li");
+            li.textContent = `La consulta ${[i+1]} es del artista ${dataObject[i].artistName} y corresponde a un ${dataObject[i].wrapperType}`;
+            fragment.appendChild(li);
         }
+        document.body.appendChild(fragment);
     } catch (e){
         console.log(e);
         console.log("API call error - searchingPeace");
@@ -65,14 +73,19 @@ const releaseAdele2021 = async() =>{
         const response = await fetch("https://itunes.apple.com/search?term=adele&media=music&limit=200");        
         const result = await response.json();
         let dataObject = result.results;
-        document.write("<br>");
-        document.write("<b>Los temas de Adele en 2021 son :<br></b>");
+        const fragment = document.createDocumentFragment();
+        const h2 = document.createElement("h2");
+        h2.textContent = `Los temas de Adele en 2021 son :`;
+        fragment.appendChild(h2);
         for (let i = 0; i < dataObject.length; i++) {
             const element = dataObject[i];
             const date = element.releaseDate.substring(0,4)
             if (date == "2021") {
-                document.write(element.trackName); document.write("<br>");
+                const li = document.createElement("li");
+                li.textContent = `${element.trackName}`;
+                fragment.appendChild(li);
             }
+            document.body.appendChild(fragment);
         }
     } catch (e){
         console.log(e);
@@ -91,11 +104,16 @@ const bestRatingIndex = async() =>{
         const response = await fetch(apiRest);
         const result = await response.json();
         let dataObject = result.results;
-        document.write("<br><br>")
-        document.write(`<b>Los 10 mejor valorados en Itunes:<br></b>`);
+        const fragment = document.createDocumentFragment();
+        const h2 = document.createElement("h2");
+        h2.textContent = `Los 10 mejor valorados en Itunes:`;
+        fragment.appendChild(h2);
         for (let i = 0; i < 10; i++) {
-            document.write(`<b>${type.charAt(0).toUpperCase() + type.slice(1)}</b> - ${dataObject[i].trackName}`); document.write("<br>");
+            const li = document.createElement("li");
+            li.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} - ${dataObject[i].trackName}`;
+            fragment.appendChild(li);
         }
+        document.body.appendChild(fragment);
     } catch (e){
         console.log(e);
         console.log("API call error - bestRatingIndex");
