@@ -11,3 +11,18 @@ name and media type.
 ¿Cómo ejecutar el código?
 Para ejecutar el código puedes guardar la carpeta en tu 
 escritorio y abrir el archivo index.html desde tu navegador.
+También copiando el código en la siguiente web https://www.cubicfactory.com/jseditor/
+
+Funcionamiento:
+La API es muy restringida, es por eso que solicito más información 
+que la requerida a la API y después segmento mediante restricciones de parametros
+para dar el resultado deseado.
+
+Si existiese más documentación sobre la API y sus usos podería minimizarse el código
+aportando los parámetros necesarios pero al ser escasa es la mejor manera de
+soklucionarlo que he encontrado.
+
+Mejoras: 
+Facilmente, si llea a ser necesario se puede adaptar el código para añadir un
+buscador y poder modificar parámetros como el de búsqueda de artista para ver
+sus ultimas 10 canciones o lo que ha estrenado en 2021 (o cualquier otra fecha)

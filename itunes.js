@@ -26,12 +26,21 @@ const newestSongs = async() =>{
             li.textContent = `${dataObject[i].trackName}`;
             fragment.appendChild(li);
         }
-        document.body.appendChild(fragment);
+        document.getElementById("newestSong").appendChild(fragment);
     } catch (e){
         console.log(e);
         console.log("API call error - newestSongs");
     }
 }
+const butt = document.getElementById("butt");
+butt.addEventListener("click",() =>{
+    const newestSearchSongs = () =>{
+        const search = document.querySelector("#artist")
+        artistwait = search.value;
+        newestSongs();
+    }
+    newestSearchSongs();  
+})
 
 const newestgalantisSongs = () =>{
         artistwait = "galantis";
@@ -60,7 +69,7 @@ const searchingPeace = async() =>{
             li.textContent = `La consulta ${[i+1]} es del artista ${dataObject[i].artistName} y corresponde a un ${dataObject[i].wrapperType}`;
             fragment.appendChild(li);
         }
-        document.body.appendChild(fragment);
+        document.getElementById("searchingPeace").appendChild(fragment);
     } catch (e){
         console.log(e);
         console.log("API call error - searchingPeace");
@@ -85,7 +94,7 @@ const releaseAdele2021 = async() =>{
                 li.textContent = `${element.trackName}`;
                 fragment.appendChild(li);
             }
-            document.body.appendChild(fragment);
+            document.getElementById("releaseAdele2021").appendChild(fragment);
         }
     } catch (e){
         console.log(e);
@@ -113,7 +122,7 @@ const bestRatingIndex = async() =>{
             li.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} - ${dataObject[i].trackName}`;
             fragment.appendChild(li);
         }
-        document.body.appendChild(fragment);
+        document.getElementById("bestRatingIndex").appendChild(fragment);
     } catch (e){
         console.log(e);
         console.log("API call error - bestRatingIndex");
