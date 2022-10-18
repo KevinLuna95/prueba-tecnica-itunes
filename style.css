@@ -1,6 +1,39 @@
-div{
-    background: blue;
-}
-li{
+li {
     list-style: none;
+}
+
+#container_search {
+
+    display: inline-block;
+    padding: 0px 20px 22px 20px;
+    background: linear-gradient(to bottom, rgb(88, 88, 88), rgb(136, 136, 136));
+    color: rgb(255, 255, 255);
+}
+
+#container_search input,button {
+    display: inline-flex;
+}
+
+#newestSongButton {
+    border-style: none;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    background: rgb(0, 0, 0);
+}
+
+#newestSongButton:hover {
+    background: rgb(130, 130 ,130);
+    border-bottom: 3px solid black;
+    padding-bottom: 7px;
+}
+
+#artist {
+    padding: 8px;
+    color: aliceblue;
+    background: rgb(224, 224, 224);
+}
+
+#artist:focus {
+    background: rgb(117, 117 ,117);
+    padding: 8px;
 }

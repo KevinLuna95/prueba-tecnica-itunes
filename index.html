@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba Itunes</title>
+    <link href="style.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-    <div>
-        <h3>Indica el artista para ver sus últimas canciones:</h3>
-        <input id="artist" type="text" name="Indica el artista" >
-        <button id="butt">Buscar</button>
+
+    <div id="container_search">
+        <h3>Write the artist to see their last 10 songs:</h3>
+        <input id="artist" type="text" name="Write the artist" placeholder="Ariana Grande">
+        <button id="newestSongButton">Search</button>
+        <div id="searchNewestSong">
+        </div>
     </div>
     <div id="newestSong">
     </div>
@@ -21,6 +26,5 @@
     <div id="bestRatingIndex">
     </div>
     <script src="itunes.js"></script>
-    <script src="style.css"></script>
 </body>
 </html>
