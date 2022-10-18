@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     "use strict";
     
@@ -21,6 +21,7 @@ $(document).ready(function(){
             }
             return -1;
         });
+
         const fragment = document.createDocumentFragment();
         const h2 = document.createElement("h2");
         h2.textContent = `Last 10 songs of ${artist.charAt(0).toUpperCase() + artist.slice(1)}:`;
@@ -48,6 +49,7 @@ newestSongButton.addEventListener("click",() => {
         id = "#searchNewestSong";
         newestSongs();
     }
+
     newestSearchSongs();
     $('#searchNewestSong').empty();
     $('#artist').val('');
@@ -75,12 +77,14 @@ const searchingPeace = async () => {
         const h2 = document.createElement("h2");
         h2.textContent = `30 results of "Peace":`;
         fragment.appendChild(h2);
+
         for (let i = 0; i < dataObject.length; i++) {
             const li = document.createElement("li");
             li.textContent = `Response ${[i+1]} from the artist ${dataObject[i].artistName} media type - ${dataObject[i].wrapperType}`;
             fragment.appendChild(li);
         }
         document.getElementById("searchingPeace").appendChild(fragment);
+
     } catch (e) {
         console.log(e);
         console.log("API call error - searchingPeace");
@@ -94,9 +98,11 @@ const releaseAdele2021 = async () => {
         const result = await response.json();
         let dataObject = result.results;
         const fragment = document.createDocumentFragment();
+
         const h2 = document.createElement("h2");
         h2.textContent = `Adele's themes in 2021 are:`;
         fragment.appendChild(h2);
+
         for (let i = 0; i < dataObject.length; i++) {
             const element = dataObject[i];
             const date = element.releaseDate.substring(0,4)
@@ -107,6 +113,7 @@ const releaseAdele2021 = async () => {
             }
             document.getElementById("releaseAdele2021").appendChild(fragment);
         }
+
     } catch (e) {
         console.log(e);
         console.log("API call error - releaseAdele2021");
@@ -124,16 +131,19 @@ const bestRatingIndex = async () => {
         const response = await fetch(apiRest);
         const result = await response.json();
         let dataObject = result.results;
+
         const fragment = document.createDocumentFragment();
         const h2 = document.createElement("h2");
         h2.textContent = `Top 10 rated ${type} on itunes`;
         fragment.appendChild(h2);
+
         for (let i = 0; i < 10; i++) {
             const li = document.createElement("li");
             li.textContent = `${dataObject[i].trackName}`;
             fragment.appendChild(li);
         }
         document.getElementById("bestRatingIndex").appendChild(fragment);
+
     } catch (e) {
         console.log(e);
         console.log("API call error - bestRatingIndex");
